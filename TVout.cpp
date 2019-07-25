@@ -429,8 +429,8 @@ void TVout::draw_row(uint8_t line, uint16_t x0, uint16_t x1, uint8_t c) {
 /* Fill a column from one point to another
  *
  * Argument:
- *	row:
- *		The row that fill will be performed on.
+ *	column:
+ *		The column that fill will be performed on.
  *	y0:
  *		edge 0 of the fill.
  *	y1:
@@ -439,21 +439,21 @@ void TVout::draw_row(uint8_t line, uint16_t x0, uint16_t x1, uint8_t c) {
  *		the color of the fill.
  *		(see color note at the top of this file)
 */
-void TVout::draw_column(uint8_t row, uint16_t y0, uint16_t y1, uint8_t c) {
+void TVout::draw_column(uint8_t column, uint16_t y0, uint16_t y1, uint8_t c) {
 
 	unsigned char bit;
 	int byte;
 	
 	if (y0 == y1)
-		set_pixel(row,y0,c);
+		set_pixel(column,y0,c);
 	else {
 		if (y1 < y0) {
 			bit = y0;
 			y0 = y1;
 			y1 = bit;
 		}
-		bit = 0x80 >> (row&7);
-		byte = row/8 + y0*display.hres;
+		bit = 0x80 >> (column&7);
+		byte = column/8 + y0*display.hres;
 		if (c == WHITE) {
 			while ( y0 <= y1) {
 				screen[byte] |= bit;
