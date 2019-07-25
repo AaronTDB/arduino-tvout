@@ -99,7 +99,7 @@ public:
 	void shift(uint8_t distance, uint8_t direction);
 	void draw_line(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, char c);
 	void draw_row(uint8_t line, uint16_t x0, uint16_t x1, uint8_t c);
-	void draw_column(uint8_t row, uint16_t y0, uint16_t y1, uint8_t c);
+	void draw_column(uint8_t column, uint16_t y0, uint16_t y1, uint8_t c);
 	void draw_rect(uint8_t x0, uint8_t y0, uint8_t w, uint8_t h, char c, char fc = -1); 
 	void draw_circle(uint8_t x0, uint8_t y0, uint8_t radius, char c, char fc = -1);
 	void bitmap(uint8_t x, uint8_t y, const unsigned char * bmp, uint16_t i = 0, uint8_t width = 0, uint8_t lines = 0);
